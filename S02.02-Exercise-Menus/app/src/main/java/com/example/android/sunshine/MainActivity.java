@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         int itemId = item.getItemId();
         switch (itemId) {
             case R.id.action_refresh:
+                mWeatherTextView.setText("");
                 loadWeatherData();
                 break;
         }
