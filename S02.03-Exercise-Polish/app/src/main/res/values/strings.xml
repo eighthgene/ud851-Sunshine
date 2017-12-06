@@ -27,7 +27,8 @@
     <!--Used in overflow menu to refresh weather data-->
     <string name="action_refresh">Refresh</string>
 
-    <!--TODO (1) Add a string resource for your error message-->
+    <!--TODCOMPLETED (1) Add a string resource for your error message-->
+    <string name="error_message">Error loading data</string>
 
 
     <!-- - - - - - - - - - - - - -->
@@ -40,7 +41,7 @@
     <!-- For labelling tomorrow's forecast [CHAR LIMIT=15] -->
     <string name="tomorrow">Tomorrow</string>
 
-    <!-- Date format [CHAR LIMIT=NONE] -->
+    <!-- Date format [CHAR LIMIT=NCOMPLETEDNE] -->
     <string name="format_full_friendly_date">
         <xliff:g id="month">%1$s</xliff:g>, <xliff:g id="day">%2$s</xliff:g>
     </string>
