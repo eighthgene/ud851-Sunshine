@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.sunshine.data.SunshinePreferences;
 import com.example.android.sunshine.utilities.NetworkUtils;
@@ -33,9 +34,10 @@ import com.example.android.sunshine.utilities.OpenWeatherJsonUtils;
 
 import java.net.URL;
 
-// TODO (8) Implement ForecastAdapterOnClickHandler from the MainActivity
-public class MainActivity extends AppCompatActivity {
+// COMPLETED (8) Implement ForecastAdapterOnClickHandler from the MainActivity
+public class MainActivity extends AppCompatActivity implements ForecastAdapter.ForecastAdapterOnClickHandler {
 
+    private Toast mToastClickDay;
     private RecyclerView mRecyclerView;
     private ForecastAdapter mForecastAdapter;
 
@@ -73,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
          */
         mRecyclerView.setHasFixedSize(true);
 
-        // TODO (11) Pass in 'this' as the ForecastAdapterOnClickHandler
+        // COMPLETED (11) Pass in 'this' as the ForecastAdapterOnClickHandler
         /*
          * The ForecastAdapter is responsible for linking our weather data with the Views that
          * will end up displaying our weather data.
          */
-        mForecastAdapter = new ForecastAdapter();
+        mForecastAdapter = new ForecastAdapter(this);
 
         /* Setting the adapter attaches it to the RecyclerView in our layout. */
         mRecyclerView.setAdapter(mForecastAdapter);
@@ -107,8 +109,18 @@ public class MainActivity extends AppCompatActivity {
         new FetchWeatherTask().execute(location);
     }
 
-    // TODO (9) Override ForecastAdapterOnClickHandler's onClick method
-    // TODO (10) Show a Toast when an item is clicked, displaying that item's weather data
+    // COMPLETED (9) Override ForecastAdapterOnClickHandler's onClick method
+    @Override
+    public void onListClickListener(String weatherForecastDay) {
+        if (mToastClickDay != null) {
+            mToastClickDay.cancel();
+        }
+
+        mToastClickDay = Toast.makeText(this, weatherForecastDay, Toast.LENGTH_SHORT);
+        mToastClickDay.show();
+
+    }
+    // COMPLETED (10) Show a Toast when an item is clicked, displaying that item's weather data
 
     /**
      * This method will make the View for the weather data visible and
@@ -137,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         /* Then, show the error */
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
+
 
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
