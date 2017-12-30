@@ -112,6 +112,18 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         new FetchWeatherTask().execute(location);
     }
 
+    private void openLocationMap(){
+        String addresLocation = "1600 Ampitheatre Parkway, CA";
+        Uri uriAddresLocation = Uri.parse("geo:0,0?q=" + addresLocation);
+
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW);
+        mapIntent.setData(uriAddresLocation);
+
+        if (mapIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(mapIntent);
+        }
+    }
+
     /**
      * This method is overridden by our MainActivity class in order to handle RecyclerView item
      * clicks.
@@ -221,7 +233,11 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             return true;
         }
 
-        // TODO (2) Launch the map when the map menu item is clicked
+        // COMPLETED (2) Launch the map when the map menu item is clicked
+        if (id == R.id.actin_map){
+            openLocationMap();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
