@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity implements
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
-    // COMPLETED (7) In onStart, if preferences have been changed, refresh the data and set the flag to false
+    //  COMPLETED (7) In onStart, if preferences have been changed, refresh the data and set the flag to false
     /**
      * OnStart is called when the Activity is coming into view. This happens when the Activity is
      * first created, but also happens when the Activity is returned to from another Activity. We
