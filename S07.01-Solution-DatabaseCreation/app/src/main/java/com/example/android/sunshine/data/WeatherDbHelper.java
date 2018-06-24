@@ -26,7 +26,7 @@ import com.example.android.sunshine.data.WeatherContract.WeatherEntry;
  */
 
 // COMPLETED (11) Extend SQLiteOpenHelper from WeatherDbHelper
-public classWeatherDbHelper extends SQLiteOpenHelper {
+public class WeatherDbHelper extends SQLiteOpenHelper {
 
 //  COMPLETED (12) Create a public static final String called DATABASE_NAME with value "weather.db"
     /*
