@@ -322,6 +322,7 @@ public class WeatherProvider extends ContentProvider {
         }
 //      COMPLETED (3) Return the number of rows deleted
         return numRowsDeleted;
+
     }
 
     /**
