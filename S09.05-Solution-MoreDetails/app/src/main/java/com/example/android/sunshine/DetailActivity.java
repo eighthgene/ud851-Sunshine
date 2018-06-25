@@ -195,7 +195,7 @@ public class DetailActivity extends AppCompatActivity implements
         return shareIntent;
     }
 
-//  COMPLETED (22) Override onCreateLoader
+//      COMPLETED (22) Override onCreateLoader
     /**
      * Creates and returns a CursorLoader that loads the data for our URI and stores it in a Cursor.
      *
