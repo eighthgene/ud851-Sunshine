@@ -15,6 +15,7 @@
  */
 package com.example.android.sunshine;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -27,9 +28,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.android.sunshine.data.WeatherContract;
+import com.example.android.sunshine.utilities.NotificationUtils;
 import com.example.android.sunshine.utilities.SunshineDateUtils;
 import com.example.android.sunshine.utilities.SunshineWeatherUtils;
 
@@ -356,5 +359,10 @@ public class DetailActivity extends AppCompatActivity implements
      */
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+    }
+
+    public void notifyUser(View view){
+        Context context = getBaseContext();
+        NotificationUtils.notifyUserOfNewWeather(context);
     }
 }
